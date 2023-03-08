@@ -50,21 +50,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _text = "";
-  void _kelipatan3Counter() {
-    setState(() {
-      if(_counter == 100) {
-        _counter = 0;
-      }
-      _counter++;
-
-      _text = 'Kelipatan 3 dari 1 sampai ${_counter}: ';
-      for(int i=0; i<= _counter; i++) {
-        if(i%3 == 0) {
-          _text += '${i}, ';
-        }
-      }
-    });
-  }
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -121,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Kelipatan bilangan 3 dari 1 sampai N:',
+              'Cek bilangan ganjil atau genap',
             ),
             Text(
               '$_counter',
@@ -129,13 +114,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               _text,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed:  _kelipatan3Counter, //_incrementCounter,
+        onPressed:  _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
