@@ -58,10 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
 
       _text = 'Kelipatan 3 dari 1 sampai ${_counter}: ';
-      for(int i=0; i<= _counter; i++) {
-        if(i%3 == 0) {
+      for(int i=1; i<= _counter; i++) {
+        if(i%3 == 0 && i % 2 == 0)
           _text += '${i}, ';
-        }
       }
     });
   }
