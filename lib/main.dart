@@ -39,7 +39,19 @@ class DetailScreen extends StatelessWidget {
                             fontFamily: 'Quicksand',
                           ),
                       ),
-              )
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0, bottom: 5.0),
+                      child: Text(
+                        "Museum inside a decommissioned Russian war submarine with tours & an adjacent park with cafes. Clean and well maintained. Car parka cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarin",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Quicksand',
+                        ),
+                      ),
+                    ),
             ]
           )
         )
