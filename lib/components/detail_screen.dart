@@ -17,9 +17,9 @@ class DetailScreen extends StatelessWidget {
                       "Surabaya Submarine Monument",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Quicksand',
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -34,14 +34,14 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0, bottom: 5.0),
+                    margin: EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0, bottom: 16.0),
                     child: Text(
                       "Museum inside a decommissioned Russian war submarine with tours & an adjacent park with cafes. Clean and well maintained. Car parka cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Quicksand',
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ),
