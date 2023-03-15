@@ -24,12 +24,40 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Column(
+                    margin: EdgeInsets.only(top: 25.0, bottom: 15.0),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        Icon(Icons.calendar_today),
-                        Text('Open everyday'),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Icon(Icons.calendar_today, size: 25.0,),
+                            Text('Open everyday', style: TextStyle(
+                                fontSize: 10.0
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Icon(Icons.access_time_outlined, size: 25.0),
+                            Text('08:00 - 16:00', style: TextStyle(
+                                fontSize: 10.0
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Icon(Icons.attach_money, size: 25.0),
+                            Text('Rp 10.000', style: TextStyle(
+                                fontSize: 10.0
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
