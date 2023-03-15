@@ -80,39 +80,63 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Image.network(
-                              'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.network(
+                              'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg',
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Image.asset(
-                              'assets/images/image_1.png'
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              'assets/images/image_1.png',
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                         Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(4.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                                'assets/images/image_2.jpeg'
+                              'assets/images/image_2.jpeg',
+                              fit: BoxFit.fill,
                             ),
+                          ),
                         ),
                         Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(4.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                                'assets/images/image_3.jpeg'
+                              'assets/images/image_3.jpeg',
+                              fit: BoxFit.fill,
                             ),
+                          ),
                         ),
                         Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(4.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                                'assets/images/image_4.jpg'
+                              'assets/images/image_4.jpg',
+                              fit: BoxFit.fill,
                             ),
+                          ),
                         ),
                         Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                                'assets/images/image_5.jpeg'
+                              'assets/images/image_5.jpeg',
+                              fit: BoxFit.fill,
                             ),
+                          ),
                         ),
                       ],
                     )
