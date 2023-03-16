@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:initial_project/model/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
-
+  const DetailScreen({Key? key, required this.place }) : super(key: key);
+  final TourismPlace place;
   @override
   Widget build(BuildContext ctx) {
     return Scaffold(
@@ -10,7 +11,7 @@ class DetailScreen extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Image.asset('assets/images/image_4.jpg'),
+                  Image.asset(place.imagePath[0]),
                   Container(
                     margin: EdgeInsets.only(top: 16.0),
                     child: Text(
