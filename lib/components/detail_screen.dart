@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:initial_project/model/tourism_place.dart';
 
@@ -11,7 +12,11 @@ class DetailScreen extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Image.asset(place.imagePath[0]),
+                  SizedBox(
+                    height: 100.0,
+                    width: 500.0,
+                    child: Image.asset(place.imagePath[0]),
+                  ),
                   Container(
                     margin: EdgeInsets.only(top: 16.0),
                     child: Text(

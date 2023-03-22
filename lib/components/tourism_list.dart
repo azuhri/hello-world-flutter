@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:initial_project/components/detail_screen.dart';
-import 'package:initial_project/components/done_tourism_list.dart';
 import 'package:initial_project/model/tourism_place.dart';
-import 'package:initial_project/components/list_item.dart';
+import 'package:initial_project/components/detail_screen.dart';
 
-class MainScreen extends StatefulWidget{
-  MainScreen({Key? key}) : super(key: key);
+import 'list_item.dart';
+
+
+class TourismList extends StatefulWidget{
+  final List<TourismPlace> doneTourismPlaceList;
+
+  const TourismList({
+    Key? key,
+    required this.doneTourismPlaceList
+  }) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _TourismListState createState() => _TourismListState(doneTourismPlaceList);
 }
 
-class _MainScreenState extends State<MainScreen> {
-  final List<TourismPlace> doneTourismPlaceList = [];
+class _TourismListState extends State<TourismList> {
+  List<TourismPlace> doneTourismPlaceList = [];
   final List<TourismPlace> tourismPlaceList = [
     TourismPlace(
       name: 'Surabaya Submarine Monument',
@@ -25,26 +31,12 @@ class _MainScreenState extends State<MainScreen> {
       ],
    ),
   ];
+  
+  _TourismListState(this.doneTourismPlaceList);
 
   @override
-  Widget build(BuildContext ctx) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('WISATA SURABAYA'),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (ctx) {
-                  return DoneTourismList(doneTourismPlaceList: doneTourismPlaceList);
-                }),);
-            },
-            icon: const Icon(Icons.done_outline)
-          )
-        ],
-      ),
-      body: ListView.builder(
+  Widget build(BuildContext context) {
+    return ListView.builder(
         itemBuilder: (ctx, index) {
           final TourismPlace place = tourismPlaceList[index];
           return InkWell(
@@ -59,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
               onCheckboxClick: (bool? value) {
                 setState(() {
                   if(value!=null) {
-                    value ? doneTourismPlaceList.add(place) : doneTourismPlaceList.remove(place);
+                    value ? doneTourismPlaceList.add(place) : doneTourismPlaceList.remove(place)
                   }
                 });
               },
@@ -67,7 +59,6 @@ class _MainScreenState extends State<MainScreen> {
         );
       },
         itemCount: tourismPlaceList.length,
-      ),
-    );
+      );
   }
 }
