@@ -22,12 +22,30 @@ class _TourismListState extends State<TourismList> {
   final List<TourismPlace> tourismPlaceList = [
     TourismPlace(
       name: 'Surabaya Submarine Monument',
+      desc: 'Museum inside a decommissioned Russian war submarine with tours & an adjacent park with cafes. Clean and well maintained. Car parka cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine',
       location: 'Jl Pemuda Raya',
+      day: 'Setiap Hari',
+      time: '08:00 - 16:30',
+      price: 'Rp 5.000',
       imagePath: [
-        'assets/images/image_1.png',
-        'assets/images/image_1.png',
-        'assets/images/image_1.png',
-        'assets/images/image_1.png',
+        'assets/images/image_2.jpeg',
+        'assets/images/image_2.jpeg',
+        'assets/images/image_2.jpeg',
+        'assets/images/image_2.jpeg',
+      ],
+   ),
+   TourismPlace(
+      name: 'Kebun Binatang Surabay',
+      desc: 'Kebun Binatang Surabaya adalah salah satu kebun binatang yang populer di Indonesia dan terletak di Surabaya. KBS merupakan kebun binatang yang pernah terlengkap se-Asia Tenggara, di dalamnya terdapat lebih dari 230 spesies satwa yang berbeda yang terdiri lebih dari 2179 ekor satwa',
+      location: 'Jl. Setail No.1, Darmo, Kec. Wonokromo, Kota SBY, Jawa Timur 60241',
+      day: 'Setiap Hari',
+      time: '08:00 - 15:00',
+      price: 'Rp 8.000',
+      imagePath: [
+        'assets/images/kebunbinatan_2.jpeg',
+        'assets/images/kebunbinatan_3.jpeg',
+        'assets/images/kebunbinatan_4.jpeg',
+        'assets/images/kebunbinatan_5.jpeg',
       ],
    ),
   ];
