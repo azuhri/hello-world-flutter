@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:initial_project/model/tourism_place.dart';
 import 'package:initial_project/components/detail_screen.dart';
+import 'package:initial_project/provider/done_tourism_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:initial_project/provider/done_tourism_provider.dart';
 
 import 'list_item.dart';
 
 
 class TourismList extends StatefulWidget{
-  final List<TourismPlace> doneTourismPlaceList;
-
-  const TourismList({
-    Key? key,
-    required this.doneTourismPlaceList
-  }) : super(key: key);
+  const TourismList({Key? key}) : super(key: key);
 
   @override
-  _TourismListState createState() => _TourismListState(doneTourismPlaceList);
+  _TourismListState createState() => _TourismListState();
 }
 
 class _TourismListState extends State<TourismList> {
-  List<TourismPlace> doneTourismPlaceList = [];
   final List<TourismPlace> tourismPlaceList = [
     TourismPlace(
       name: 'Surabaya Submarine Monument',
@@ -31,8 +28,6 @@ class _TourismListState extends State<TourismList> {
       ],
    ),
   ];
-  
-  _TourismListState(this.doneTourismPlaceList);
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +40,16 @@ class _TourismListState extends State<TourismList> {
                   return DetailScreen(place: place);
               }));
             },
-            child: ListItem(
-              place: place,
-              isDone: doneTourismPlaceList.contains(place),
-              onCheckboxClick: (bool? value) {
-                setState(() {
-                  if(value!=null) {
-                    value ? doneTourismPlaceList.add(place) : doneTourismPlaceList.remove(place)
-                  }
-                });
-              },
+            child: Consumer<DoneTourismProvider>(
+               builder: (ctx, DoneTourismProvider data, widget) {
+                  return  ListItem(
+                            place: place,
+                            isDone: data.doneTourismProvider.contains(place),
+                            onCheckboxClick: (bool? value) {
+                              data.complete(place, value!);
+                            },
+                          );
+               }
             ),
         );
       },

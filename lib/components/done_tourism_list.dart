@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:initial_project/model/tourism_place.dart';
+import 'package:initial_project/provider/done_tourism_provider.dart';
+import 'package:provider/provider.dart';
 
 class DoneTourismList extends StatelessWidget {
-  final List<TourismPlace> doneTourismPlaceList;
-  const DoneTourismList({
-    Key? key,
-    required this.doneTourismPlaceList
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final List<TourismPlace> doneTourismPlaceList =
+      Provider.of<DoneTourismProvider>(
+      context,
+      listen: false,
+    ).doneTourismPlaceList;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Wisata Telah Dikunjungi'),
       ),
       body: ListView.builder(itemBuilder: (context, index) {
-        final TourismPlace place = doneTourismPlaceList[index];
+        final place = doneTourismPlaceList[index];
         return Card(
           color: Colors.white60,
           child: Row(
