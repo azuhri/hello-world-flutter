@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:initial_project/model/tourism_place.dart';
+import 'package:initial_project/model/foods.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key, required this.place }) : super(key: key);
-  final TourismPlace place;
+  const DetailScreen({Key? key, required this.food }) : super(key: key);
+  final Food food;
   @override
   Widget build(BuildContext ctx) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Detail ${food.name}'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(ctx).pop(),
+          ),
+        ),
         body: SafeArea(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Image.asset(place.imagePath[0]),
+                  SizedBox(
+                    height: 100.0,
+                    width: 50.0,
+                    child: Image.asset(
+                        food.imagePath[0],
+                        fit: BoxFit.cover,
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.only(top: 16.0),
                     child: Text(
-                      "Surabaya Submarine Monument",
+                      food.name,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 25.0,
@@ -32,19 +46,10 @@ class DetailScreen extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            Icon(Icons.calendar_today, size: 25.0,),
-                            Text('Open everyday', style: TextStyle(
-                                fontSize: 10.0
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            Icon(Icons.access_time_outlined, size: 25.0),
-                            Text('08:00 - 16:00', style: TextStyle(
-                                fontSize: 10.0
+                            Icon(Icons.favorite, size: 25.0, color: Colors.red,),
+                            Text('${food.likes} Likes', style: TextStyle(
+                                fontSize: 10.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
@@ -53,8 +58,9 @@ class DetailScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             Icon(Icons.attach_money, size: 25.0),
-                            Text('Rp 10.000', style: TextStyle(
-                                fontSize: 10.0
+                            Text('Rp ${food.price}', style: TextStyle(
+                                fontSize: 10.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
@@ -65,7 +71,7 @@ class DetailScreen extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0, bottom: 16.0),
                     child: Text(
-                      "Museum inside a decommissioned Russian war submarine with tours & an adjacent park with cafes. Clean and well maintained. Car parka cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine",
+                      food.desc,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 13.0,
@@ -83,8 +89,8 @@ class DetailScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(4.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
-                            child: Image.network(
-                              'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg',
+                            child: Image.asset(
+                              food.imagePath[0],
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -94,7 +100,7 @@ class DetailScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                              'assets/images/image_1.png',
+                              food.imagePath[1],
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -104,7 +110,7 @@ class DetailScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                              'assets/images/image_2.jpeg',
+                              food.imagePath[2],
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -114,7 +120,7 @@ class DetailScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                              'assets/images/image_3.jpeg',
+                              food.imagePath[3],
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -124,17 +130,7 @@ class DetailScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                              'assets/images/image_4.jpg',
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                              'assets/images/image_5.jpeg',
+                              food.imagePath[0],
                               fit: BoxFit.fill,
                             ),
                           ),

@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:initial_project/components/detail_screen.dart';
-import 'package:initial_project/model/tourism_place.dart';
+import 'package:initial_project/model/foods.dart';
 
 class MainScreen extends StatelessWidget{
   const MainScreen({Key? key}) : super(key: key);
@@ -14,29 +15,35 @@ class MainScreen extends StatelessWidget{
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
-          final TourismPlace place = tourismPlaceList[index];
+          final Food food = foods[index];
           return InkWell(
              onTap: () {
                   Navigator.push(ctx, MaterialPageRoute(builder: (context) {
-                  return DetailScreen(place: place);
+                  return DetailScreen(food: food);
               }));
             },
-            child: listItem(place),
+            child: listItem(food),
         );
       },
-        itemCount: tourismPlaceList.length,
+        itemCount: foods.length,
       ),
     );
   }
 
-  Widget listItem(TourismPlace place) {
+  Widget listItem(Food food) {
     return Card(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
                 flex: 1,
-                child: Image.asset(place.imagePath[0]),
+                child: SizedBox(
+                  child: Image.asset(
+                          food.imagePath[0],
+                          height: 50.0,
+                          width: 50.0,
+                        ),
+                ) 
             ),
             Expanded(
               flex: 2,
@@ -47,21 +54,26 @@ class MainScreen extends StatelessWidget{
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Text(
-                      place.name,
+                      food.name,
                       style: TextStyle(
                         fontSize: 12.0,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
                     Text(
-                      place.location,
+                      food.location,
                       style: TextStyle(
                          fontSize: 10.0,
                          fontFamily: 'poppins',
+                      ),
+                    ),
+                    Text(
+                      'Rp ${food.price}',
+                      style: TextStyle(
+                         fontSize: 10.0,
+                         fontFamily: 'poppins',
+                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
