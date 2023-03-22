@@ -13,22 +13,54 @@ class DoneTourismList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Wisata Telah Dikunjungi'),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: ListView.builder(itemBuilder: (context, index) {
         final TourismPlace place = doneTourismPlaceList[index];
         return Card(
-          color: Colors.white60,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                place.name,
-                style: const TextStyle(fontSize: 16.0),
-              ),
-              const Icon(Icons.done_outline),
-            ],
-          ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+                flex: 1,
+                child: Image.asset(place.imagePath[0]),
+            ),
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      place.name,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      place.location,
+                      style: TextStyle(
+                         fontSize: 10.0,
+                         fontFamily: 'poppins',
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ),
+           const Icon(Icons.done_outline),
+          ],
+        ),
         );
        },
        itemCount: doneTourismPlaceList.length,
@@ -36,3 +68,4 @@ class DoneTourismList extends StatelessWidget {
     );
   }
 }
+

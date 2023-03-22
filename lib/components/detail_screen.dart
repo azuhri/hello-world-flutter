@@ -8,6 +8,13 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Detail ${place.name}'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(ctx).pop(),
+          ),
+        ),
         body: SafeArea(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
